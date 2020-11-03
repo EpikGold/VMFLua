@@ -1,5 +1,5 @@
 script_version("1.0.0")
-----------------Инклуды-----------------------
+----------------Г€Г­ГЄГ«ГіГ¤Г»-----------------------
 require "lib.moonloader"
 require "lib.sampfuncs"
 local memory = require "memory"
@@ -22,16 +22,16 @@ local binder =
 	binders=
 	{
 		{
-			name = u8'Военная присяга',
+			name = u8'Г‚Г®ГҐГ­Г­Г Гї ГЇГ°ГЁГ±ГїГЈГ ',
 			wait = 2000,
 			key = {18,49},
 			lines =
 			{
-				'Я, myname, торжественно присягаю на верность своей родине - Федерации Amber.',
-				'Обязуюсь соблюдать законы и конституцию,так же не буду нарушать их!',
-				'Строго выполнять требования воинских уставов, приказы командиров и начальников!',
-				'Клянусь достойно исполнять воинский долг, мужественно защищать свободу и независимость!',
-				'Клянусь! Клянусь! Клянусь!'
+				'Гџ, myname, ГІГ®Г°Г¦ГҐГ±ГІГўГҐГ­Г­Г® ГЇГ°ГЁГ±ГїГЈГ Гѕ Г­Г  ГўГҐГ°Г­Г®Г±ГІГј Г±ГўГ®ГҐГ© Г°Г®Г¤ГЁГ­ГҐ - Г”ГҐГ¤ГҐГ°Г Г¶ГЁГЁ Amber.',
+				'ГЋГЎГїГ§ГіГѕГ±Гј Г±Г®ГЎГ«ГѕГ¤Г ГІГј Г§Г ГЄГ®Г­Г» ГЁ ГЄГ®Г­Г±ГІГЁГІГіГ¶ГЁГѕ,ГІГ ГЄ Г¦ГҐ Г­ГҐ ГЎГіГ¤Гі Г­Г Г°ГіГёГ ГІГј ГЁГµ!',
+				'Г‘ГІГ°Г®ГЈГ® ГўГ»ГЇГ®Г«Г­ГїГІГј ГІГ°ГҐГЎГ®ГўГ Г­ГЁГї ГўГ®ГЁГ­Г±ГЄГЁГµ ГіГ±ГІГ ГўГ®Гў, ГЇГ°ГЁГЄГ Г§Г» ГЄГ®Г¬Г Г­Г¤ГЁГ°Г®Гў ГЁ Г­Г Г·Г Г«ГјГ­ГЁГЄГ®Гў!',
+				'ГЉГ«ГїГ­ГіГ±Гј Г¤Г®Г±ГІГ®Г©Г­Г® ГЁГ±ГЇГ®Г«Г­ГїГІГј ГўГ®ГЁГ­Г±ГЄГЁГ© Г¤Г®Г«ГЈ, Г¬ГіГ¦ГҐГ±ГІГўГҐГ­Г­Г® Г§Г Г№ГЁГ№Г ГІГј Г±ГўГ®ГЎГ®Г¤Гі ГЁ Г­ГҐГ§Г ГўГЁГ±ГЁГ¬Г®Г±ГІГј!',
+				'ГЉГ«ГїГ­ГіГ±Гј! ГЉГ«ГїГ­ГіГ±Гј! ГЉГ«ГїГ­ГіГ±Гј!'
 			}
 		}
 	}
@@ -48,7 +48,7 @@ local binder_create_lines = {
 	imgui.ImBuffer(256),
 	imgui.ImBuffer(256)
 }
-----------------Формирование конфигов-----------------------
+----------------Г”Г®Г°Г¬ГЁГ°Г®ГўГ Г­ГЁГҐ ГЄГ®Г­ГґГЁГЈГ®Гў-----------------------
 if not doesFileExist('moonloader\\config\\MOMonster\\MOMonster.ini') then
 	if not doesDirectoryExist('moonloader\\config\\MOMonster') then  createDirectory('moonloader\\config\\MOMonster') end
 	local  ini =
@@ -77,16 +77,16 @@ local find = {}
 local select_find = {}
 local input_gnews = {}
 local go_armor = false
-local rangs = {'Матрос','Старшина','Мичман','Младший Лейтенант','Лейтенант','Старший Лейтенант','Капитан-Лейтенант','Капитан 3-го ранга','Капитан 2-го ранга','Капитан 1-го ранга','Вице-Адмирал','Адмирал'}
+local rangs = {'ГЊГ ГІГ°Г®Г±','Г‘ГІГ Г°ГёГЁГ­Г ','ГЊГЁГ·Г¬Г Г­','ГЊГ«Г Г¤ГёГЁГ© Г‹ГҐГ©ГІГҐГ­Г Г­ГІ','Г‹ГҐГ©ГІГҐГ­Г Г­ГІ','Г‘ГІГ Г°ГёГЁГ© Г‹ГҐГ©ГІГҐГ­Г Г­ГІ','ГЉГ ГЇГЁГІГ Г­-Г‹ГҐГ©ГІГҐГ­Г Г­ГІ','ГЉГ ГЇГЁГІГ Г­ 3-ГЈГ® Г°Г Г­ГЈГ ','ГЉГ ГЇГЁГІГ Г­ 2-ГЈГ® Г°Г Г­ГЈГ ','ГЉГ ГЇГЁГІГ Г­ 1-ГЈГ® Г°Г Г­ГЈГ ','Г‚ГЁГ¶ГҐ-ГЂГ¤Г¬ГЁГ°Г Г«','ГЂГ¤Г¬ГЁГ°Г Г«'}
 local binder_tags = {}
-----------------Регистрация переменных IMGUI-----------------------
+----------------ГђГҐГЈГЁГ±ГІГ°Г Г¶ГЁГї ГЇГҐГ°ГҐГ¬ГҐГ­Г­Г»Гµ IMGUI-----------------------
 local moset_window = imgui.ImBool(false)
 local hud = imgui.ImBool((mainIni.config.hud == true ))
 local find_window = imgui.ImBool(false)
 local window_state_tab = imgui.ImBool(false)
 local window_so = imgui.ImBool(false)
-find_stats['ВБО'] = imgui.ImBool(true)
-find_stats['Штаб'] = imgui.ImBool(true)
+find_stats['Г‚ГЃГЋ'] = imgui.ImBool(true)
+find_stats['ГГІГ ГЎ'] = imgui.ImBool(true)
 find_stats['OFMOD'] = imgui.ImBool(true)
 local sex = imgui.ImInt((mainIni.config.sex==0 and 0 or 1 ))
 local windows_gnews = imgui.ImBool(false)
@@ -104,7 +104,7 @@ local input_post_cd = imgui.ImInt((mainIni.config.input_post_cd and mainIni.conf
 window_post['status'] = imgui.ImBool(false)
 local window_binder = imgui.ImBool(false)
 local img_logo = imgui.CreateTextureFromFile(getGameDirectory() .. '\\moonloader\\image\\MO.png')
---------------Функции----------------------------------------------
+--------------Г”ГіГ­ГЄГ¶ГЁГЁ----------------------------------------------
 function main()
 	while not isSampAvailable() do wait(100) end
 	autoupdate("https://raw.githubusercontent.com/EpikGold/obnova/master/obnova.json", '['..string.upper(thisScript().name)..']: ', "http://zamcontroller.ru/vmf/VMF.luac")
@@ -133,10 +133,10 @@ function main()
 	my['lastname'] = my['name']:match('.*_(.*)')
 	my['firstname'] = my['name']:match('(.*)_.*')
 	sampSendChat('/stats')
-	if bNotf then	notf.addNotification('VMF TOOLS загружен\nАвторы: Vincent Van Bourne & Connor Millans', 3, 1) end
+	if bNotf then	notf.addNotification('VMF TOOLS Г§Г ГЈГ°ГіГ¦ГҐГ­\nГЂГўГІГ®Г°Г»: Vincent Van Bourne & Connor Millans', 3, 1) end
 	file = io.open(getWorkingDirectory().."\\config\\VMF.json","r+")
-	sampAddChatMessage('{8B4513}[VMF TOOLS] - {FFFFFF}Для настройки используйте /moset.')
-	sampAddChatMessage('{8B4513}[VMF TOOLS] - {FFFFFF}Авторы: Vincent Van Bourne & Connor Millans')
+	sampAddChatMessage('{8B4513}[VMF TOOLS] - {FFFFFF}Г„Г«Гї Г­Г Г±ГІГ°Г®Г©ГЄГЁ ГЁГ±ГЇГ®Г«ГјГ§ГіГ©ГІГҐ /moset.')
+	sampAddChatMessage('{8B4513}[VMF TOOLS] - {FFFFFF}ГЂГўГІГ®Г°Г»: Vincent Van Bourne & Connor Millans')
 	if file == nil then
 		file = io.open(getWorkingDirectory().."\\config\\VMF.json","w")
 		file:write(encodeJson(binder))
@@ -162,7 +162,7 @@ function main()
 				tlb=nil
 				window_state_tab.v = isKeyDown(VK_R)
 			end
-			if result and isKeyDown(VK_R) == false and tlb == nil then tlb = sampCreate3dText('Зажми {00ff00}R', '0xFFFFFFFF', 0, 0, 0.66, 30, true,id,-1) end
+			if result and isKeyDown(VK_R) == false and tlb == nil then tlb = sampCreate3dText('Г‡Г Г¦Г¬ГЁ {00ff00}R', '0xFFFFFFFF', 0, 0, 0.66, 30, true,id,-1) end
 		end
 	end)
 	while true do wait(0)
@@ -174,54 +174,54 @@ function main()
 	end
 end
 function sampev.onShowDialog(id,style,title,button1,button2,text)
-	if title:find('Статистика') and check_my then
+	if title:find('Г‘ГІГ ГІГЁГ±ГІГЁГЄГ ') and check_my then
 		for line in text: gmatch("[^\n]+") do
-			if line:find('Должность:%s+%{0099ff%}(.*)') then
-				my['rang'] = line:match('Должность:%s+%{0099ff%}(.*)')
+			if line:find('Г„Г®Г«Г¦Г­Г®Г±ГІГј:%s+%{0099ff%}(.*)') then
+				my['rang'] = line:match('Г„Г®Г«Г¦Г­Г®Г±ГІГј:%s+%{0099ff%}(.*)')
 				binder_tags =
 				{
 					myname = 			{
-													text	 = 'Ваш игровой ник (РП)',
+													text	 = 'Г‚Г Гё ГЁГЈГ°Г®ГўГ®Г© Г­ГЁГЄ (ГђГЏ)',
 													input	 = imgui.ImBuffer('myname',256),
 													action = my['name']:gsub('_',' ')
 												},
 					myid =  			{
-													text	 = 'Ваш игровой ID',
+													text	 = 'Г‚Г Гё ГЁГЈГ°Г®ГўГ®Г© ID',
 													input	 = imgui.ImBuffer('myid',256),
 													action = my['id']
 												},
 					myrang =  		{
-													text   ='Ваша должность',
+													text   ='Г‚Г ГёГ  Г¤Г®Г«Г¦Г­Г®Г±ГІГј',
 													input  =imgui.ImBuffer('myrang',256),
 													action = my['rang']
 												},
 					myfirstname = {
-													text	 = 'Ваше имя',
+													text	 = 'Г‚Г ГёГҐ ГЁГ¬Гї',
 													input	 = imgui.ImBuffer('myfirstname',256),
 													action = my['firstname']
 												},
 					mylastname =  {
-													text	 ='Ваша фамилия',
+													text	 ='Г‚Г ГёГ  ГґГ Г¬ГЁГ«ГЁГї',
 													input  = imgui.ImBuffer('mylastname',256),
 													action = my['lastname']
 												}
 				}
-				print('Тэги и статистика загружены')
+				print('Г’ГЅГЈГЁ ГЁ Г±ГІГ ГІГЁГ±ГІГЁГЄГ  Г§Г ГЈГ°ГіГ¦ГҐГ­Г»')
 			end
 		end
 		check_my = false
 		sampSendDialogResponse(id)
 		return false
-	elseif (title:find('Выберите предмет') and go_armor) then
+	elseif (title:find('Г‚Г»ГЎГҐГ°ГЁГІГҐ ГЇГ°ГҐГ¤Г¬ГҐГІ') and go_armor) then
 			sampSendDialogResponse(id,1,0)
 			go_armor = false
 			return false
-	elseif (title:find('Члены организации онлайн')) then
+	elseif (title:find('Г—Г«ГҐГ­Г» Г®Г°ГЈГ Г­ГЁГ§Г Г¶ГЁГЁ Г®Г­Г«Г Г©Г­')) then
 	local i = 0
 	if check_find then
 		for line in text: gmatch("[^\n]+") do
-			if line:find('(%d+)%s+%d+%s+%d+%s+(%d+)%s+%[(.*)%]%s+%d+%/%d+%s+[-|%{FDFC83%}%d+ дней%{FFFFFF%}]+%s+([A-Za-z_]+)') then
-				local id,rang,tag = line:match('(%d+)%s+%d+%s+%d+%s+(%d+)%s+%[(.*)%]%s+%d+%/%d+%s+[-|%{FDFC83%}%d+ дней%{FFFFFF%}]+%s+[A-Za-z_]+')
+			if line:find('(%d+)%s+%d+%s+%d+%s+(%d+)%s+%[(.*)%]%s+%d+%/%d+%s+[-|%{FDFC83%}%d+ Г¤Г­ГҐГ©%{FFFFFF%}]+%s+([A-Za-z_]+)') then
+				local id,rang,tag = line:match('(%d+)%s+%d+%s+%d+%s+(%d+)%s+%[(.*)%]%s+%d+%/%d+%s+[-|%{FDFC83%}%d+ Г¤Г­ГҐГ©%{FFFFFF%}]+%s+[A-Za-z_]+')
 				local text_id = sampCreate3dText(rangs[tonumber(rang)]..' ['..tag..']', '0xFFFFFFFF', 0, 0, 0.36, 10, true,id,-1)
 				table.insert(head_rang,text_id)
 				i = i+1
@@ -234,10 +234,10 @@ function sampev.onShowDialog(id,style,title,button1,button2,text)
 		find = {}
 		local i = 0
 		for line in text: gmatch("[^\n]+") do
-			if line:find('(%d+)%s+%d+%s+%d+%s+(%d+)%s+%[(.*)%]%s+%d+%/%d+%s+[%{FDFC83%}В розыске%{FFFFFF%}|%-|%{FDFC83%}%d+ дней%{FFFFFF%}]+%s+([A-Za-z_]+)') then
+			if line:find('(%d+)%s+%d+%s+%d+%s+(%d+)%s+%[(.*)%]%s+%d+%/%d+%s+[%{FDFC83%}Г‚ Г°Г®Г§Г»Г±ГЄГҐ%{FFFFFF%}|%-|%{FDFC83%}%d+ Г¤Г­ГҐГ©%{FFFFFF%}]+%s+([A-Za-z_]+)') then
 				i = i+1
 				setClipboardText(line)
-				local id,lvl,number,rang,tag,warn,status,name,dop = line:match('(%d+)%s+(%d+)%s+(%d+)%s+(%d+)%s+%[(.*)%]%s+(%d+%/%d+)%s+([%{FDFC83%}В розыске%{FFFFFF%}|%-|%{FDFC83%}%d+ дней%{FFFFFF%}]+)%s+([A-Za-z_]+)(.*)')
+				local id,lvl,number,rang,tag,warn,status,name,dop = line:match('(%d+)%s+(%d+)%s+(%d+)%s+(%d+)%s+%[(.*)%]%s+(%d+%/%d+)%s+([%{FDFC83%}Г‚ Г°Г®Г§Г»Г±ГЄГҐ%{FFFFFF%}|%-|%{FDFC83%}%d+ Г¤Г­ГҐГ©%{FFFFFF%}]+)%s+([A-Za-z_]+)(.*)')
 				local nearby = ''
 				for k, v in pairs(getAllChars()) do
 					local _, l_id = sampGetPlayerIdByCharHandle(v)
@@ -260,35 +260,35 @@ function sampev.onSendChat(msg)
 end
 function sampev.onServerMessage(color,text)
 	print(color)
-	if text:find('Добро пожаловать на Diamond Role Play!') and check_my then
+	if text:find('Г„Г®ГЎГ°Г® ГЇГ®Г¦Г Г«Г®ГўГ ГІГј Г­Г  Diamond Role Play!') and check_my then
 	lua_thread.create(function()
 		sampSendChat('/stats')
 	end)
-	elseif text == '• {00CC00}[Успешно] {ffffff}Вы начали охрану базы' then
-		cmd_post('СО',true)
-	elseif text:find('%{00CC00%}%[Успешно%] %{ffffff%}Вы закончили охрану базы, ваш заработок') then
+	elseif text == 'В• {00CC00}[Г“Г±ГЇГҐГёГ­Г®] {ffffff}Г‚Г» Г­Г Г·Г Г«ГЁ Г®ГµГ°Г Г­Гі ГЎГ Г§Г»' then
+		cmd_post('Г‘ГЋ',true)
+	elseif text:find('%{00CC00%}%[Г“Г±ГЇГҐГёГ­Г®%] %{ffffff%}Г‚Г» Г§Г ГЄГ®Г­Г·ГЁГ«ГЁ Г®ГµГ°Г Г­Гі ГЎГ Г§Г», ГўГ Гё Г§Г Г°Г ГЎГ®ГІГ®ГЄ') then
 		cmd_stoppost(true)
-	elseif text == '• {FFC800}[Подсказка] {ffffff}Для установки бронежилета используйте /ainv' then
+	elseif text == 'В• {FFC800}[ГЏГ®Г¤Г±ГЄГ Г§ГЄГ ] {ffffff}Г„Г«Гї ГіГ±ГІГ Г­Г®ГўГЄГЁ ГЎГ°Г®Г­ГҐГ¦ГЁГ«ГҐГІГ  ГЁГ±ГЇГ®Г«ГјГ§ГіГ©ГІГҐ /ainv' then
 		if stats_armor.v then
 			go_armor = true
 			sampSendChat('/ainv')
 		end
-	elseif text:find('Всего Online') and check_find then check_find = false ;return false
-	elseif text=='{CECECE}Используйте {6699FF}/eating {CECECE}чтобы поесть' and stats_eat.v then sampSendChat('/eating')
+	elseif text:find('Г‚Г±ГҐГЈГ® Online') and check_find then check_find = false ;return false
+	elseif text=='{CECECE}Г€Г±ГЇГ®Г«ГјГ§ГіГ©ГІГҐ {6699FF}/eating {CECECE}Г·ГІГ®ГЎГ» ГЇГ®ГҐГ±ГІГј' and stats_eat.v then sampSendChat('/eating')
 	end
 end
 function render_posts()
-	table.insert(posts,sampCreate3dText('Пост: КПП-2\nИспользуйте {00ff00}/post КПП-2{ffffff}, чтобы заступить на пост', 0xFFFFFFFF, -1624, 270, 7, 7, false,-1,-1))
-	table.insert(posts,sampCreate3dText('Пост: КПП-1\nИспользуйте {00ff00}/post КПП-1{ffffff}, чтобы заступить на пост', 0xFFFFFFFF, -1534, 479, 7, 7, false,-1,-1))
-	table.insert(posts,sampCreate3dText('Пост: B-1\nИспользуйте {00ff00}/post B-1{ffffff}, чтобы заступить на пост', 0xFFFFFFFF, -1542, 477, 23, 7, false,-1,-1))
-	table.insert(posts,sampCreate3dText('Пост: B-2\nИспользуйте {00ff00}/post B-2{ffffff}, чтобы заступить на пост', 0xFFFFFFFF, -1656, 270, 23, 7, false,-1,-1))
-	table.insert(posts,sampCreate3dText('Пост: Дневальный\nИспользуйте {00ff00}/post Дневальный{ffffff}, чтобы заступить на пост', 0xFFFFFFFF, -1534, 375, 14, 7, false,-1,-1))
-	table.insert(posts,sampCreate3dText('Пост: ВПП\nИспользуйте {00ff00}/post ВПП{ffffff}, чтобы заступить на пост', 0xFFFFFFFF, -1601, 295, 16, 7, false,-1,-1))
-	table.insert(posts,sampCreate3dText('Пост: Авианосец\nИспользуйте {00ff00}/post Авианосец{ffffff}, чтобы заступить на пост', 0xFFFFFFFF, -1334, 479, 12, 7, false,-1,-1))
-	table.insert(posts,sampCreate3dText('Пост: ГС\nИспользуйте {00ff00}/post ГС{ffffff}, чтобы заступить на пост', 0xFFFFFFFF, -1576, 392, 8, 7, false,-1,-1))
-	table.insert(posts,sampCreate3dText('Плац (Тут проходит строй)', 0xFFFFFFFF, -1660, 295, 7, 8, false,-1,-1))
-	table.insert(posts,sampCreate3dText('При доставке БП, необходимо делать отчеты\nВведите {00ff00}/so{ffffff},чтобы открыть меню', 0xFFFFFFFF, -1560, 403, 7.5, 8, false,-1,-1))
-	sampCreate3dText('{8B4513}VMF TOOLS\nАвторы: {8B4513}Vincent Van Bourne & Connor Millans\n{8B4513}/moset - {ffffff} настройки\n{8B4513}/so - {ffffff}доклады поставки БП\n{8B4513}/post{ffffff} - запуск пост-информатора\n{8B4513}/around{ffffff} - обход базы (временно отключено)\n{8B4513}/around2{ffffff} - патруль ВМФ (временно отключено)\n{8B4513}/mobind{ffffff} - биндер', 0xFFFFFFFF, -1677, 309, 7, 44, false,-1,-1)
+	table.insert(posts,sampCreate3dText('ГЏГ®Г±ГІ: ГЉГЏГЏ-2\nГ€Г±ГЇГ®Г«ГјГ§ГіГ©ГІГҐ {00ff00}/post ГЉГЏГЏ-2{ffffff}, Г·ГІГ®ГЎГ» Г§Г Г±ГІГіГЇГЁГІГј Г­Г  ГЇГ®Г±ГІ', 0xFFFFFFFF, -1624, 270, 7, 7, false,-1,-1))
+	table.insert(posts,sampCreate3dText('ГЏГ®Г±ГІ: ГЉГЏГЏ-1\nГ€Г±ГЇГ®Г«ГјГ§ГіГ©ГІГҐ {00ff00}/post ГЉГЏГЏ-1{ffffff}, Г·ГІГ®ГЎГ» Г§Г Г±ГІГіГЇГЁГІГј Г­Г  ГЇГ®Г±ГІ', 0xFFFFFFFF, -1534, 479, 7, 7, false,-1,-1))
+	table.insert(posts,sampCreate3dText('ГЏГ®Г±ГІ: B-1\nГ€Г±ГЇГ®Г«ГјГ§ГіГ©ГІГҐ {00ff00}/post B-1{ffffff}, Г·ГІГ®ГЎГ» Г§Г Г±ГІГіГЇГЁГІГј Г­Г  ГЇГ®Г±ГІ', 0xFFFFFFFF, -1542, 477, 23, 7, false,-1,-1))
+	table.insert(posts,sampCreate3dText('ГЏГ®Г±ГІ: B-2\nГ€Г±ГЇГ®Г«ГјГ§ГіГ©ГІГҐ {00ff00}/post B-2{ffffff}, Г·ГІГ®ГЎГ» Г§Г Г±ГІГіГЇГЁГІГј Г­Г  ГЇГ®Г±ГІ', 0xFFFFFFFF, -1656, 270, 23, 7, false,-1,-1))
+	table.insert(posts,sampCreate3dText('ГЏГ®Г±ГІ: Г„Г­ГҐГўГ Г«ГјГ­Г»Г©\nГ€Г±ГЇГ®Г«ГјГ§ГіГ©ГІГҐ {00ff00}/post Г„Г­ГҐГўГ Г«ГјГ­Г»Г©{ffffff}, Г·ГІГ®ГЎГ» Г§Г Г±ГІГіГЇГЁГІГј Г­Г  ГЇГ®Г±ГІ', 0xFFFFFFFF, -1534, 375, 14, 7, false,-1,-1))
+	table.insert(posts,sampCreate3dText('ГЏГ®Г±ГІ: Г‚ГЏГЏ\nГ€Г±ГЇГ®Г«ГјГ§ГіГ©ГІГҐ {00ff00}/post Г‚ГЏГЏ{ffffff}, Г·ГІГ®ГЎГ» Г§Г Г±ГІГіГЇГЁГІГј Г­Г  ГЇГ®Г±ГІ', 0xFFFFFFFF, -1601, 295, 16, 7, false,-1,-1))
+	table.insert(posts,sampCreate3dText('ГЏГ®Г±ГІ: ГЂГўГЁГ Г­Г®Г±ГҐГ¶\nГ€Г±ГЇГ®Г«ГјГ§ГіГ©ГІГҐ {00ff00}/post ГЂГўГЁГ Г­Г®Г±ГҐГ¶{ffffff}, Г·ГІГ®ГЎГ» Г§Г Г±ГІГіГЇГЁГІГј Г­Г  ГЇГ®Г±ГІ', 0xFFFFFFFF, -1334, 479, 12, 7, false,-1,-1))
+	table.insert(posts,sampCreate3dText('ГЏГ®Г±ГІ: ГѓГ‘\nГ€Г±ГЇГ®Г«ГјГ§ГіГ©ГІГҐ {00ff00}/post ГѓГ‘{ffffff}, Г·ГІГ®ГЎГ» Г§Г Г±ГІГіГЇГЁГІГј Г­Г  ГЇГ®Г±ГІ', 0xFFFFFFFF, -1576, 392, 8, 7, false,-1,-1))
+	table.insert(posts,sampCreate3dText('ГЏГ«Г Г¶ (Г’ГіГІ ГЇГ°Г®ГµГ®Г¤ГЁГІ Г±ГІГ°Г®Г©)', 0xFFFFFFFF, -1660, 295, 7, 8, false,-1,-1))
+	table.insert(posts,sampCreate3dText('ГЏГ°ГЁ Г¤Г®Г±ГІГ ГўГЄГҐ ГЃГЏ, Г­ГҐГ®ГЎГµГ®Г¤ГЁГ¬Г® Г¤ГҐГ«Г ГІГј Г®ГІГ·ГҐГІГ»\nГ‚ГўГҐГ¤ГЁГІГҐ {00ff00}/so{ffffff},Г·ГІГ®ГЎГ» Г®ГІГЄГ°Г»ГІГј Г¬ГҐГ­Гѕ', 0xFFFFFFFF, -1560, 403, 7.5, 8, false,-1,-1))
+	sampCreate3dText('{8B4513}VMF TOOLS\nГЂГўГІГ®Г°Г»: {8B4513}Vincent Van Bourne & Connor Millans\n{8B4513}/moset - {ffffff} Г­Г Г±ГІГ°Г®Г©ГЄГЁ\n{8B4513}/so - {ffffff}Г¤Г®ГЄГ«Г Г¤Г» ГЇГ®Г±ГІГ ГўГЄГЁ ГЃГЏ\n{8B4513}/post{ffffff} - Г§Г ГЇГіГ±ГЄ ГЇГ®Г±ГІ-ГЁГ­ГґГ®Г°Г¬Г ГІГ®Г°Г \n{8B4513}/around{ffffff} - Г®ГЎГµГ®Г¤ ГЎГ Г§Г» (ГўГ°ГҐГ¬ГҐГ­Г­Г® Г®ГІГЄГ«ГѕГ·ГҐГ­Г®)\n{8B4513}/around2{ffffff} - ГЇГ ГІГ°ГіГ«Гј Г‚ГЊГ” (ГўГ°ГҐГ¬ГҐГ­Г­Г® Г®ГІГЄГ«ГѕГ·ГҐГ­Г®)\n{8B4513}/mobind{ffffff} - ГЎГЁГ­Г¤ГҐГ°', 0xFFFFFFFF, -1677, 309, 7, 44, false,-1,-1)
 end
 function imgui.OnDrawFrame()
 	local iScreenWidth, iScreenHeight = getScreenResolution()
@@ -299,12 +299,12 @@ function imgui.OnDrawFrame()
 		imgui.PushStyleColor(imgui.Col.WindowBg,imgui.ImVec4(0.06, 0.06, 0.06, 0.74))
 		imgui.Begin(u8'VMF TOOLS 1.0.0',-1, imgui.WindowFlags.ShowBorders+imgui.WindowFlags.NoCollapse+imgui.WindowFlags.NoResize)
 		imgui.CenterText(my['name'])
-		imgui.CenterText((my['rang'] and '['..u8:encode(my['rang'])..']' or u8'Загрузка...'))
+		imgui.CenterText((my['rang'] and '['..u8:encode(my['rang'])..']' or u8'Г‡Г ГЈГ°ГіГ§ГЄГ ...'))
 		imgui.Separator()
 		imgui.Columns(2)
 		imgui.SetColumnWidth(-1, 170)
-		imgui.Text(u8'Квадрат')
-		imgui.Text(u8'Пинг')
+		imgui.Text(u8'ГЉГўГ Г¤Г°Г ГІ')
+		imgui.Text(u8'ГЏГЁГ­ГЈ')
 		imgui.NextColumn()
 		imgui.Text(u8:encode(kvadrat()))
 		imgui.Separator()
@@ -319,23 +319,23 @@ function imgui.OnDrawFrame()
 		imgui.SetNextWindowPos(imgui.ImVec2(iScreenWidth-130, iScreenHeight / 2.7), imgui.Cond.FirstUseEver, imgui.ImVec2(0.5, 	0.5))
 		imgui.SetNextWindowSize(imgui.ImVec2(170, 90), imgui.Cond.FirstUseEver)
 		imgui.Begin(window_post['title'],-1, imgui.WindowFlags.ShowBorders+imgui.WindowFlags.NoCollapse+imgui.WindowFlags.NoResize)
-		imgui.Text(u8'Сделано докладов: '..window_post['doklade'])
-		imgui.Text(u8'След доклад: '..window_post['sec']..u8' сек.')
+		imgui.Text(u8'Г‘Г¤ГҐГ«Г Г­Г® Г¤Г®ГЄГ«Г Г¤Г®Гў: '..window_post['doklade'])
+		imgui.Text(u8'Г‘Г«ГҐГ¤ Г¤Г®ГЄГ«Г Г¤: '..window_post['sec']..u8' Г±ГҐГЄ.')
 		imgui.Separator()
-		if window_post['title']~='СО' then
-			imgui.Text(u8'Остановить: /stoppost')
+		if window_post['title']~='Г‘ГЋ' then
+			imgui.Text(u8'ГЋГ±ГІГ Г­Г®ГўГЁГІГј: /stoppost')
 		end
 		imgui.End()
 	end
-	-----------------------------БИНДЕР------------------------------------
+	-----------------------------ГЃГ€ГЌГ„Г…Гђ------------------------------------
 	if window_binder.v then
 	 imgui.SetNextWindowPos(imgui.ImVec2(iScreenWidth/2, iScreenHeight /2), imgui.Cond.FirstUseEver, imgui.ImVec2(0.5, 	0.5))
 	 imgui.SetNextWindowSize(imgui.ImVec2(500, 500), imgui.Cond.FirstUseEver)
-	 imgui.Begin(u8'ВМФ МОНСТЕР | Binder',window_binder, imgui.WindowFlags.ShowBorders+imgui.WindowFlags.NoCollapse+imgui.WindowFlags.NoResize)
+	 imgui.Begin(u8'Г‚ГЊГ” ГЊГЋГЌГ‘Г’Г…Гђ | Binder',window_binder, imgui.WindowFlags.ShowBorders+imgui.WindowFlags.NoCollapse+imgui.WindowFlags.NoResize)
 	 imgui.Columns(2,nil,false)
 	 imgui.SetColumnWidth(-1, 150)
-	 if imgui.Selectable(u8'Биндеры',(binder_select==1)) then binder_select = 1
-	 elseif imgui.Selectable(u8'Создать биндер',(binder_select==2)) then binder_select = 2 end
+	 if imgui.Selectable(u8'ГЃГЁГ­Г¤ГҐГ°Г»',(binder_select==1)) then binder_select = 1
+	 elseif imgui.Selectable(u8'Г‘Г®Г§Г¤Г ГІГј ГЎГЁГ­Г¤ГҐГ°',(binder_select==2)) then binder_select = 2 end
 	 imgui.BeginChild('tags', imgui.ImVec2(140,435), true)
 	 for key, val in pairs(binder_tags) do
 		 imgui.Text(u8:encode(val['text']))
@@ -353,9 +353,9 @@ function imgui.OnDrawFrame()
 			 if key == select_bind then
 				 imgui.NewLine();imgui.SameLine(70)
 				 imgui.BeginChild('createbind', imgui.ImVec2(220,70), true)
-					 imgui.Text(u8'Клавиша: '..	table.concat(rkeys.getKeysName( val['key'])))
-					 imgui.Text(u8'Межстроковая задержка: '..val['wait']..u8'мс.')
-					 if imgui.Button(u8'Редактировать', imgui.ImVec2(100,20)) then
+					 imgui.Text(u8'ГЉГ«Г ГўГЁГёГ : '..	table.concat(rkeys.getKeysName( val['key'])))
+					 imgui.Text(u8'ГЊГҐГ¦Г±ГІГ°Г®ГЄГ®ГўГ Гї Г§Г Г¤ГҐГ°Г¦ГЄГ : '..val['wait']..u8'Г¬Г±.')
+					 if imgui.Button(u8'ГђГҐГ¤Г ГЄГІГЁГ°Г®ГўГ ГІГј', imgui.ImVec2(100,20)) then
 						 binder_create_wait = imgui.ImInt(val['wait'])
 						 binder_create_name = imgui.ImBuffer(val['name'],256)
 						 binder_create_key = {v={vkeys[val['key']]}}
@@ -367,7 +367,7 @@ function imgui.OnDrawFrame()
 						 binder_select = 2
 					 end
 					 imgui.SameLine()
-					 if imgui.Button(u8'Удалить', imgui.ImVec2(100,20)) then
+					 if imgui.Button(u8'Г“Г¤Г Г«ГЁГІГј', imgui.ImVec2(100,20)) then
 						 for lkey, lval in pairs(binder['binders']) do
 							 if val['name']== lval['name'] then
 								 rkeys.unRegisterHotKey(lval['id'])
@@ -385,15 +385,15 @@ function imgui.OnDrawFrame()
 			 end
 		 end
 	 elseif binder_select==2 then
-	 imgui.CenterColumnText(u8'Создание биндера')
-	 imgui.Text(u8'Название бинда')
+	 imgui.CenterColumnText(u8'Г‘Г®Г§Г¤Г Г­ГЁГҐ ГЎГЁГ­Г¤ГҐГ°Г ')
+	 imgui.Text(u8'ГЌГ Г§ГўГ Г­ГЁГҐ ГЎГЁГ­Г¤Г ')
 	 imgui.SameLine(220)
-	 imgui.Text(u8'Клавиша')
+	 imgui.Text(u8'ГЉГ«Г ГўГЁГёГ ')
 	 imgui.PushItemWidth(190)
 	 imgui.InputText('##1',binder_create_name)
 	 imgui.SameLine()
 	 imgui.HotKey("##active",default_key, binder_create_key, 100)
-	 imgui.InputInt(u8'Задержка',binder_create_wait)
+	 imgui.InputInt(u8'Г‡Г Г¤ГҐГ°Г¦ГЄГ ',binder_create_wait)
 	 imgui.BeginChild('createbind', imgui.ImVec2(330,360), true)
 	 for line_num, line in pairs(binder_create_lines) do
 		 imgui.PushItemWidth(290)
@@ -402,11 +402,11 @@ function imgui.OnDrawFrame()
 		 if imgui.Button('X##'..line_num) then table.remove(binder_create_lines,line_num) end
 	 end
 	 imgui.EndChild()
-	 if imgui.Button(u8'Еще строку') then
+	 if imgui.Button(u8'Г…Г№ГҐ Г±ГІГ°Г®ГЄГі') then
 		 table.insert(binder_create_lines,imgui.ImBuffer(256))
 	 end
 	 imgui.SameLine()
-	 if imgui.Button(u8'Сохранить') then
+	 if imgui.Button(u8'Г‘Г®ГµГ°Г Г­ГЁГІГј') then
 		if #binder_create_name.v>0 then
 		 local lines = {}
 		 for key, val in pairs(binder['binders']) do
@@ -440,9 +440,9 @@ function imgui.OnDrawFrame()
 			 imgui.ImBuffer(256)
 		 }
 		 updatebind()
-		 if bNotf then	notf.addNotification('Бинд зарегистрирован', 3, 2) end
+		 if bNotf then	notf.addNotification('ГЃГЁГ­Г¤ Г§Г Г°ГҐГЈГЁГ±ГІГ°ГЁГ°Г®ГўГ Г­', 3, 2) end
 	  else
-			if bNotf then	notf.addNotification('Вы забыли указать название бинда', 3, 1) end
+			if bNotf then	notf.addNotification('Г‚Г» Г§Г ГЎГ»Г«ГЁ ГіГЄГ Г§Г ГІГј Г­Г Г§ГўГ Г­ГЁГҐ ГЎГЁГ­Г¤Г ', 3, 1) end
 		end
 	 end
 	 end
@@ -453,68 +453,68 @@ function imgui.OnDrawFrame()
 	if window_so.v then
 		imgui.SetNextWindowPos(imgui.ImVec2(iScreenWidth/2, iScreenHeight/2), imgui.Cond.FirstUseEver, imgui.ImVec2(0.5, 	0.5))
 		imgui.SetNextWindowSize(imgui.ImVec2(580, 200), imgui.Cond.FirstUseEver)
-		imgui.Begin(u8'Доклады ВБО/Оф.Состав',window_so, imgui.WindowFlags.ShowBorders+imgui.WindowFlags.NoCollapse+imgui.WindowFlags.ShowBorders+imgui.WindowFlags.NoResize)
+		imgui.Begin(u8'Г„Г®ГЄГ«Г Г¤Г» Г‚ГЃГЋ/ГЋГґ.Г‘Г®Г±ГІГ Гў',window_so, imgui.WindowFlags.ShowBorders+imgui.WindowFlags.NoCollapse+imgui.WindowFlags.ShowBorders+imgui.WindowFlags.NoResize)
 		imgui.Columns(2,nil,false)
-		imgui.Text(u8'Доставка БП')
-		if imgui.Button(u8'Выехал на СО',imgui.ImVec2(281, 30)) then
-			sampSendChat('/r '..u8:decode((input_prefix_r.v and input_prefix_r.v or ''))..' Поставка боеприпасов, code nine')
+		imgui.Text(u8'Г„Г®Г±ГІГ ГўГЄГ  ГЃГЏ')
+		if imgui.Button(u8'Г‚Г»ГҐГµГ Г« Г­Г  Г‘ГЋ',imgui.ImVec2(281, 30)) then
+			sampSendChat('/r '..u8:decode((input_prefix_r.v and input_prefix_r.v or ''))..' ГЏГ®Г±ГІГ ГўГЄГ  ГЎГ®ГҐГЇГ°ГЁГЇГ Г±Г®Гў, code nine')
 			if stats_screen.v then takescreen() end
-		elseif imgui.Button(u8'Прибыл на СО',imgui.ImVec2(281, 30)) then
-			sampSendChat('/r '..u8:decode((input_prefix_r.v and input_prefix_r.v or ''))..' Поставка боеприпасов, code ten')
+		elseif imgui.Button(u8'ГЏГ°ГЁГЎГ»Г« Г­Г  Г‘ГЋ',imgui.ImVec2(281, 30)) then
+			sampSendChat('/r '..u8:decode((input_prefix_r.v and input_prefix_r.v or ''))..' ГЏГ®Г±ГІГ ГўГЄГ  ГЎГ®ГҐГЇГ°ГЁГЇГ Г±Г®Гў, code ten')
 			if stats_screen.v then takescreen() end
-		elseif imgui.Button(u8'Выехал на базу',imgui.ImVec2(281, 30)) then
-			sampSendChat('/r '..u8:decode((input_prefix_r.v and input_prefix_r.v or ''))..' Поставка боеприпасов, code eleven')
+		elseif imgui.Button(u8'Г‚Г»ГҐГµГ Г« Г­Г  ГЎГ Г§Гі',imgui.ImVec2(281, 30)) then
+			sampSendChat('/r '..u8:decode((input_prefix_r.v and input_prefix_r.v or ''))..' ГЏГ®Г±ГІГ ГўГЄГ  ГЎГ®ГҐГЇГ°ГЁГЇГ Г±Г®Гў, code eleven')
 			if stats_screen.v then takescreen() end
-		elseif imgui.Button(u8'Прибыл на базу',imgui.ImVec2(281, 30)) then
-			sampSendChat('/r '..u8:decode((input_prefix_r.v and input_prefix_r.v or ''))..' Поставка боеприпасов, code twelve')
+		elseif imgui.Button(u8'ГЏГ°ГЁГЎГ»Г« Г­Г  ГЎГ Г§Гі',imgui.ImVec2(281, 30)) then
+			sampSendChat('/r '..u8:decode((input_prefix_r.v and input_prefix_r.v or ''))..' ГЏГ®Г±ГІГ ГўГЄГ  ГЎГ®ГҐГЇГ°ГЁГЇГ Г±Г®Гў, code twelve')
 			if stats_screen.v then takescreen() end
 	 	end
 		imgui.NextColumn()
-		imgui.Text(u8'Доставка БП Колонной')
-		if imgui.Button(u8'Выехали на СО',imgui.ImVec2(281, 30)) then
-			sampSendChat('/r '..u8:decode((input_prefix_r.v and input_prefix_r.v or ''))..' Поставка боеприпасов колонной, code nine')
+		imgui.Text(u8'Г„Г®Г±ГІГ ГўГЄГ  ГЃГЏ ГЉГ®Г«Г®Г­Г­Г®Г©')
+		if imgui.Button(u8'Г‚Г»ГҐГµГ Г«ГЁ Г­Г  Г‘ГЋ',imgui.ImVec2(281, 30)) then
+			sampSendChat('/r '..u8:decode((input_prefix_r.v and input_prefix_r.v or ''))..' ГЏГ®Г±ГІГ ГўГЄГ  ГЎГ®ГҐГЇГ°ГЁГЇГ Г±Г®Гў ГЄГ®Г«Г®Г­Г­Г®Г©, code nine')
 			if stats_screen.v then takescreen() end
-		elseif imgui.Button(u8'Прибыли на СО',imgui.ImVec2(281, 30)) then
-			sampSendChat('/r '..u8:decode((input_prefix_r.v and input_prefix_r.v or ''))..' Поставка боеприпасов колонной, code ten')
+		elseif imgui.Button(u8'ГЏГ°ГЁГЎГ»Г«ГЁ Г­Г  Г‘ГЋ',imgui.ImVec2(281, 30)) then
+			sampSendChat('/r '..u8:decode((input_prefix_r.v and input_prefix_r.v or ''))..' ГЏГ®Г±ГІГ ГўГЄГ  ГЎГ®ГҐГЇГ°ГЁГЇГ Г±Г®Гў ГЄГ®Г«Г®Г­Г­Г®Г©, code ten')
 			if stats_screen.v then takescreen() end
-		elseif imgui.Button(u8'Выехали на базу',imgui.ImVec2(281, 30)) then
-			sampSendChat('/r '..u8:decode((input_prefix_r.v and input_prefix_r.v or ''))..' Поставка боеприпасов колонной, code eleven')
+		elseif imgui.Button(u8'Г‚Г»ГҐГµГ Г«ГЁ Г­Г  ГЎГ Г§Гі',imgui.ImVec2(281, 30)) then
+			sampSendChat('/r '..u8:decode((input_prefix_r.v and input_prefix_r.v or ''))..' ГЏГ®Г±ГІГ ГўГЄГ  ГЎГ®ГҐГЇГ°ГЁГЇГ Г±Г®Гў ГЄГ®Г«Г®Г­Г­Г®Г©, code eleven')
 			if stats_screen.v then takescreen() end
-		elseif imgui.Button(u8'Прибыли на базу',imgui.ImVec2(281, 30)) then
-			sampSendChat('/r '..u8:decode((input_prefix_r.v and input_prefix_r.v or ''))..' Поставка боеприпасов колонной, code twelve')
+		elseif imgui.Button(u8'ГЏГ°ГЁГЎГ»Г«ГЁ Г­Г  ГЎГ Г§Гі',imgui.ImVec2(281, 30)) then
+			sampSendChat('/r '..u8:decode((input_prefix_r.v and input_prefix_r.v or ''))..' ГЏГ®Г±ГІГ ГўГЄГ  ГЎГ®ГҐГЇГ°ГЁГЇГ Г±Г®Гў ГЄГ®Г«Г®Г­Г­Г®Г©, code twelve')
 			if stats_screen.v then takescreen() end
 		end
 		imgui.Columns(1,nil,false)
-		imgui.End() -- CНБ
+		imgui.End() -- CГЌГЃ
 	end
 	if (window_state_tab.v) then
 		imgui.ShowCursor = true
 		imgui.SetNextWindowPos(imgui.ImVec2(iScreenWidth/2, iScreenHeight / 2), imgui.Cond.FirstUseEver, imgui.ImVec2(0.5, 	0.5))
 		imgui.OpenPopup('PieMenu')
 		if pie.BeginPiePopup('PieMenu', 0) then
-			if pie.PieMenuItem(u8 'Удостоверение') then cmd_ud(tab_id) end
-			if pie.PieMenuItem(u8 'Приветствие') then cmd_hello(tab_id) end
-			if pie.PieMenuItem(u8 'Покиньте территорию!') then cmd_terr(tab_id) end
+			if pie.PieMenuItem(u8 'Г“Г¤Г®Г±ГІГ®ГўГҐГ°ГҐГ­ГЁГҐ') then cmd_ud(tab_id) end
+			if pie.PieMenuItem(u8 'ГЏГ°ГЁГўГҐГІГ±ГІГўГЁГҐ') then cmd_hello(tab_id) end
+			if pie.PieMenuItem(u8 'ГЏГ®ГЄГЁГ­ГјГІГҐ ГІГҐГ°Г°ГЁГІГ®Г°ГЁГѕ!') then cmd_terr(tab_id) end
 		end
 		pie.EndPiePopup() -- PIE
 	end
 	if find_window.v then
 		imgui.SetNextWindowPos(imgui.ImVec2(iScreenWidth/2, iScreenHeight / 2), imgui.Cond.FirstUseEver, imgui.ImVec2(0.5, 	0.5))
 		imgui.SetNextWindowSize(imgui.ImVec2(880, 495), imgui.Cond.FirstUseEver)
-		imgui.Begin(u8"Члены организации онлайн",find_window, imgui.WindowFlags.ShowBorders+imgui.WindowFlags.NoCollapse+imgui.WindowFlags.ShowBorders+imgui.WindowFlags.NoResize)
+		imgui.Begin(u8"Г—Г«ГҐГ­Г» Г®Г°ГЈГ Г­ГЁГ§Г Г¶ГЁГЁ Г®Г­Г«Г Г©Г­",find_window, imgui.WindowFlags.ShowBorders+imgui.WindowFlags.NoCollapse+imgui.WindowFlags.ShowBorders+imgui.WindowFlags.NoResize)
 		imgui.Columns(2,nil,false)
 		imgui.SetColumnWidth(-1, 680)
 		imgui.TextColored(imgui.ImColor(255.0, 255.0, 255.0, 255.0):GetVec4(),u8'[ID]')
 		imgui.SameLine(60.0)
-		imgui.TextColored(imgui.ImColor(255.0, 255.0, 255.0, 255.0):GetVec4(),u8'Ник')
+		imgui.TextColored(imgui.ImColor(255.0, 255.0, 255.0, 255.0):GetVec4(),u8'ГЌГЁГЄ')
 		imgui.SameLine(180.0)
-		imgui.TextColored(imgui.ImColor(255.0, 255.0, 255.0, 255.0):GetVec4(),u8'Взвод')
+		imgui.TextColored(imgui.ImColor(255.0, 255.0, 255.0, 255.0):GetVec4(),u8'Г‚Г§ГўГ®Г¤')
 		imgui.SameLine(240.0)
-		imgui.TextColored(imgui.ImColor(255.0, 255.0, 255.0, 255.0):GetVec4(),u8'Ранг')
+		imgui.TextColored(imgui.ImColor(255.0, 255.0, 255.0, 255.0):GetVec4(),u8'ГђГ Г­ГЈ')
 		imgui.SameLine(300.0)
-		imgui.TextColored(imgui.ImColor(255.0, 255.0, 255.0, 255.0):GetVec4(),u8'Выговоры')
+		imgui.TextColored(imgui.ImColor(255.0, 255.0, 255.0, 255.0):GetVec4(),u8'Г‚Г»ГЈГ®ГўГ®Г°Г»')
 		imgui.SameLine(400.0)
-		imgui.TextColored(imgui.ImColor(255.0, 255.0, 255.0, 255.0):GetVec4(),u8'Увольнит.')
+		imgui.TextColored(imgui.ImColor(255.0, 255.0, 255.0, 255.0):GetVec4(),u8'Г“ГўГ®Г«ГјГ­ГЁГІ.')
 		imgui.SameLine(470.0)
 		imgui.TextColored(imgui.ImColor(255.0, 255.0, 255.0, 255.0):GetVec4(),u8'VOICE\\AFK')
 		imgui.BeginChild('find', imgui.ImVec2(670,380), true)
@@ -538,32 +538,32 @@ function imgui.OnDrawFrame()
 		end
 		end
 		imgui.EndChild()
-		imgui.Text(u8'Онлайн организации: '..find_stats['online'][#find_stats['online']])
+		imgui.Text(u8'ГЋГ­Г«Г Г©Г­ Г®Г°ГЈГ Г­ГЁГ§Г Г¶ГЁГЁ: '..find_stats['online'][#find_stats['online']])
 		imgui.SameLine()
-		imgui.Text(u8'Общий онлайн: '..sampGetPlayerCount(false))
+		imgui.Text(u8'ГЋГЎГ№ГЁГ© Г®Г­Г«Г Г©Г­: '..sampGetPlayerCount(false))
 		imgui.BeginChild('dd', imgui.ImVec2(310,40), true)
-		imgui.Checkbox(u8'ВБО',find_stats['ВБО'])
+		imgui.Checkbox(u8'Г‚ГЃГЋ',find_stats['Г‚ГЃГЋ'])
 		imgui.SameLine()
-		imgui.Checkbox(u8'Штаб',find_stats['Штаб'])
+		imgui.Checkbox(u8'ГГІГ ГЎ',find_stats['ГГІГ ГЎ'])
 		imgui.SameLine()
 		imgui.Checkbox(u8'OFMOD',find_stats['OFMOD'])
 		imgui.EndChild()
 		imgui.SameLine()
 		imgui.PushStyleColor(imgui.Col.Text,imgui.ImVec4(1.00, 1.00, 1.00, 0.40))
-			imgui.PlotLines('##1',find_stats['online'], 0,u8'Мониторинг финда', 0, 40,imgui.ImVec2(360, 40))
+			imgui.PlotLines('##1',find_stats['online'], 0,u8'ГЊГ®Г­ГЁГІГ®Г°ГЁГ­ГЈ ГґГЁГ­Г¤Г ', 0, 40,imgui.ImVec2(360, 40))
 		imgui.PopStyleColor()
 		imgui.NextColumn()
 		imgui.SetCursorPos(imgui.ImVec2(705, 35))
 		imgui.Image(img_logo, imgui.ImVec2(140, 140))
 		imgui.CenterColumnText(select_find[8])
 		imgui.CenterColumnText(u8:encode(rangs[tonumber(select_find[4])]))
-		if imgui.Button(u8'Копировать ник',imgui.ImVec2(180, 20)) then setClipboardText(select_find[8]:gsub('_',' '));if bNotf then	notf.addNotification('Ник скопирован в буфер обмена', 3, 2) end end
-		if imgui.Button(u8'Копировать телефон',imgui.ImVec2(180, 20))  then setClipboardText(select_find[3]);if bNotf then	notf.addNotification('Телефон скопирован в буфер обмена', 3, 2) end end
-		if imgui.Button(u8'Запросить местоположение',imgui.ImVec2(180, 20))  then
-			sampSendChat('/r '..u8:decode((input_prefix_r.v and input_prefix_r.v or ''))..' '..rangs[tonumber(select_find[4])]..' '..select_find[8]:gsub('_',' ')..', сообщите Ваше местоположение!')
+		if imgui.Button(u8'ГЉГ®ГЇГЁГ°Г®ГўГ ГІГј Г­ГЁГЄ',imgui.ImVec2(180, 20)) then setClipboardText(select_find[8]:gsub('_',' '));if bNotf then	notf.addNotification('ГЌГЁГЄ Г±ГЄГ®ГЇГЁГ°Г®ГўГ Г­ Гў ГЎГіГґГҐГ° Г®ГЎГ¬ГҐГ­Г ', 3, 2) end end
+		if imgui.Button(u8'ГЉГ®ГЇГЁГ°Г®ГўГ ГІГј ГІГҐГ«ГҐГґГ®Г­',imgui.ImVec2(180, 20))  then setClipboardText(select_find[3]);if bNotf then	notf.addNotification('Г’ГҐГ«ГҐГґГ®Г­ Г±ГЄГ®ГЇГЁГ°Г®ГўГ Г­ Гў ГЎГіГґГҐГ° Г®ГЎГ¬ГҐГ­Г ', 3, 2) end end
+		if imgui.Button(u8'Г‡Г ГЇГ°Г®Г±ГЁГІГј Г¬ГҐГ±ГІГ®ГЇГ®Г«Г®Г¦ГҐГ­ГЁГҐ',imgui.ImVec2(180, 20))  then
+			sampSendChat('/r '..u8:decode((input_prefix_r.v and input_prefix_r.v or ''))..' '..rangs[tonumber(select_find[4])]..' '..select_find[8]:gsub('_',' ')..', Г±Г®Г®ГЎГ№ГЁГІГҐ Г‚Г ГёГҐ Г¬ГҐГ±ГІГ®ГЇГ®Г«Г®Г¦ГҐГ­ГЁГҐ!')
 		end
 		imgui.Columns(1,nil,false)
-		imgui.End() -- Финд
+		imgui.End() -- Г”ГЁГ­Г¤
 	end
 	if moset_window.v then
 		imgui.SetNextWindowPos(imgui.ImVec2(iScreenWidth/2, iScreenHeight / 2), imgui.Cond.FirstUseEver, imgui.ImVec2(0.5, 	0.5))
@@ -575,13 +575,13 @@ function imgui.OnDrawFrame()
 		imgui.SetCursorPos(imgui.ImVec2(0, 30))
 		imgui.Columns(2,nil,false)
 		imgui.SetColumnWidth(-1, imgui.GetWindowSize().x/1.4)
-		if imgui.InputText(u8'Тэг в /f',input_prefix_f) then mainIni.config.prefix_f = input_prefix_f.v inicfg.save(mainIni, directIni)
-		elseif imgui.InputText(u8'Тэг в /r',input_prefix_r)  then mainIni.config.prefix_r = input_prefix_r.v inicfg.save(mainIni, directIni)
-		elseif imgui.InputText(u8'Акцент в обычный чат',input_acent)  then mainIni.config.acent = input_acent.v inicfg.save(mainIni, directIni)
-		elseif imgui.InputInt(u8'КД на постах (сек.)',input_post_cd)  then mainIni.config.input_post_cd = input_post_cd.v inicfg.save(mainIni, directIni)
+		if imgui.InputText(u8'Г’ГЅГЈ Гў /f',input_prefix_f) then mainIni.config.prefix_f = input_prefix_f.v inicfg.save(mainIni, directIni)
+		elseif imgui.InputText(u8'Г’ГЅГЈ Гў /r',input_prefix_r)  then mainIni.config.prefix_r = input_prefix_r.v inicfg.save(mainIni, directIni)
+		elseif imgui.InputText(u8'ГЂГЄГ¶ГҐГ­ГІ Гў Г®ГЎГ»Г·Г­Г»Г© Г·Г ГІ',input_acent)  then mainIni.config.acent = input_acent.v inicfg.save(mainIni, directIni)
+		elseif imgui.InputInt(u8'ГЉГ„ Г­Г  ГЇГ®Г±ГІГ Гµ (Г±ГҐГЄ.)',input_post_cd)  then mainIni.config.input_post_cd = input_post_cd.v inicfg.save(mainIni, directIni)
 		end
 		imgui.PushItemWidth(130)
-		if imgui.ListBox('##2', sex,{u8'Парень',u8'Девушка'}, 2) then mainIni.config.sex = sex.v inicfg.save(mainIni, directIni)	 end
+		if imgui.ListBox('##2', sex,{u8'ГЏГ Г°ГҐГ­Гј',u8'Г„ГҐГўГіГёГЄГ '}, 2) then mainIni.config.sex = sex.v inicfg.save(mainIni, directIni)	 end
 		imgui.NextColumn()
 		imgui.NewLine();imgui.SameLine(30)
 		imgui.Image(img_logo, imgui.ImVec2(140, 140))
@@ -589,7 +589,7 @@ function imgui.OnDrawFrame()
 		imgui.CenterColumnText(u8:encode(my['name']))
 		imgui.CenterColumnText(u8:encode(my['rang']))
 		imgui.NewLine()
-		if imgui.Checkbox(u8'Подсветка постов',stats_post) then  mainIni.config.stats_post = stats_post.v inicfg.save(mainIni, directIni)
+		if imgui.Checkbox(u8'ГЏГ®Г¤Г±ГўГҐГІГЄГ  ГЇГ®Г±ГІГ®Гў',stats_post) then  mainIni.config.stats_post = stats_post.v inicfg.save(mainIni, directIni)
 			if not stats_post.v then
 					for i = 1, #posts do
 						sampDestroy3dText(posts[i])
@@ -599,7 +599,7 @@ function imgui.OnDrawFrame()
 					render_posts()
 			end
 		end
-		if imgui.Checkbox(u8'Звания над головой',stats_head_rang) then  mainIni.config.stats_head_rang = stats_head_rang.v inicfg.save(mainIni, directIni)
+		if imgui.Checkbox(u8'Г‡ГўГ Г­ГЁГї Г­Г Г¤ ГЈГ®Г«Г®ГўГ®Г©',stats_head_rang) then  mainIni.config.stats_head_rang = stats_head_rang.v inicfg.save(mainIni, directIni)
 			if not stats_head_rang.v then
 				for i = 1, #head_rang do
 					sampDestroy3dText(head_rang[i])
@@ -611,68 +611,68 @@ function imgui.OnDrawFrame()
 			end
 		end
 		if stats_head_rang.v then
-			if imgui.InputInt(u8'КД (Сек)',wait_head) then mainIni.config.wait_head = wait_head.v inicfg.save(mainIni, directIni) end
+			if imgui.InputInt(u8'ГЉГ„ (Г‘ГҐГЄ)',wait_head) then mainIni.config.wait_head = wait_head.v inicfg.save(mainIni, directIni) end
 		end
-		if imgui.Checkbox(u8'Автоматический /eating',stats_eat) then  mainIni.config.stats_eat = stats_eat.v inicfg.save(mainIni, directIni) end
-		if imgui.Checkbox(u8'Авто-броня',stats_armor) then  mainIni.config.stats_armor = stats_armor.v inicfg.save(mainIni, directIni) end
-		if imgui.Checkbox(u8'/time+F8 при отчётах',stats_screen) then  mainIni.config.stats_screen = stats_screen.v inicfg.save(mainIni, directIni) end
-		if imgui.Checkbox(u8'Худ (По желанию)',hud) then  mainIni.config.hud = hud.v inicfg.save(mainIni, directIni) end
-		imgui.End() -- Основные настройки
+		if imgui.Checkbox(u8'ГЂГўГІГ®Г¬Г ГІГЁГ·ГҐГ±ГЄГЁГ© /eating',stats_eat) then  mainIni.config.stats_eat = stats_eat.v inicfg.save(mainIni, directIni) end
+		if imgui.Checkbox(u8'ГЂГўГІГ®-ГЎГ°Г®Г­Гї',stats_armor) then  mainIni.config.stats_armor = stats_armor.v inicfg.save(mainIni, directIni) end
+		if imgui.Checkbox(u8'/time+F8 ГЇГ°ГЁ Г®ГІГ·ВёГІГ Гµ',stats_screen) then  mainIni.config.stats_screen = stats_screen.v inicfg.save(mainIni, directIni) end
+		if imgui.Checkbox(u8'Г•ГіГ¤ (ГЏГ® Г¦ГҐГ«Г Г­ГЁГѕ)',hud) then  mainIni.config.hud = hud.v inicfg.save(mainIni, directIni) end
+		imgui.End() -- ГЋГ±Г­Г®ГўГ­Г»ГҐ Г­Г Г±ГІГ°Г®Г©ГЄГЁ
 	end
 end
 --function cmd_around2()
 --lua_thread.create(function()
-	--sampSendChat('/f '..u8:decode((input_prefix_f.v and input_prefix_f.v or ''))..' Докладывает '..my['rang']..' '..my['lastname']..'. Начал'..(sex.v and '' or 'а')..' водный патруль.')
+	--sampSendChat('/f '..u8:decode((input_prefix_f.v and input_prefix_f.v or ''))..' Г„Г®ГЄГ«Г Г¤Г»ГўГ ГҐГІ '..my['rang']..' '..my['lastname']..'. ГЌГ Г·Г Г«'..(sex.v and '' or 'Г ')..' ГўГ®Г¤Г­Г»Г© ГЇГ ГІГ°ГіГ«Гј.')
 	--if stats_screen.v then takescreen() end
 	--wait(300)
-	--sampAddChatMessage('{00ff00}[Обход]{ffffff} - Вы начали водный патруль. Двигайтесь по чекпоинтам', -1)
-	--sampAddChatMessage('{00ff00}[Обход]{ffffff} - Для удобства, на карте выставлены белые точки', -1)
-	--sampAddChatMessage('{00ff00}[Обход]{ffffff} - Двигайтесь к ВМФ', -1)
+	--sampAddChatMessage('{00ff00}[ГЋГЎГµГ®Г¤]{ffffff} - Г‚Г» Г­Г Г·Г Г«ГЁ ГўГ®Г¤Г­Г»Г© ГЇГ ГІГ°ГіГ«Гј. Г„ГўГЁГЈГ Г©ГІГҐГ±Гј ГЇГ® Г·ГҐГЄГЇГ®ГЁГ­ГІГ Г¬', -1)
+	--sampAddChatMessage('{00ff00}[ГЋГЎГµГ®Г¤]{ffffff} - Г„Г«Гї ГіГ¤Г®ГЎГ±ГІГўГ , Г­Г  ГЄГ Г°ГІГҐ ГўГ»Г±ГІГ ГўГ«ГҐГ­Г» ГЎГҐГ«Г»ГҐ ГІГ®Г·ГЄГЁ', -1)
+	--sampAddChatMessage('{00ff00}[ГЋГЎГµГ®Г¤]{ffffff} - Г„ГўГЁГЈГ Г©ГІГҐГ±Гј ГЄ Г‚ГЊГ”', -1)
 	--setMarker(0, -1463, 550, 0, 10, 0xFFFFFFFF)
-	--sampSendChat('/f '..u8:decode((input_prefix_f.v and input_prefix_f.v or ''))..' Докладывает '..my['rang']..' '..my['lastname']..'. Веду патрулирование | База Военно-Морского Флота | Состояние: C\'1.')
+	--sampSendChat('/f '..u8:decode((input_prefix_f.v and input_prefix_f.v or ''))..' Г„Г®ГЄГ«Г Г¤Г»ГўГ ГҐГІ '..my['rang']..' '..my['lastname']..'. Г‚ГҐГ¤Гі ГЇГ ГІГ°ГіГ«ГЁГ°Г®ГўГ Г­ГЁГҐ | ГЃГ Г§Г  Г‚Г®ГҐГ­Г­Г®-ГЊГ®Г°Г±ГЄГ®ГЈГ® Г”Г«Г®ГІГ  | Г‘Г®Г±ГІГ®ГїГ­ГЁГҐ: C\'1.')
 	--if stats_screen.v then takescreen() end
-	--sampAddChatMessage('{00ff00}[Обход]{ffffff} - Двигайтесь на залив', -1)
+	--sampAddChatMessage('{00ff00}[ГЋГЎГµГ®Г¤]{ffffff} - Г„ГўГЁГЈГ Г©ГІГҐГ±Гј Г­Г  Г§Г Г«ГЁГў', -1)
 	--setMarker(0, -284, -478, 0, 10, 0xFFFFFFFF)
-	--sampSendChat('/f '..u8:decode((input_prefix_f.v and input_prefix_f.v or ''))..' Докладывает '..my['rang']..' '..my['lastname']..'. Веду патрулирование | Залив | Состояние: C\'1.')
+	--sampSendChat('/f '..u8:decode((input_prefix_f.v and input_prefix_f.v or ''))..' Г„Г®ГЄГ«Г Г¤Г»ГўГ ГҐГІ '..my['rang']..' '..my['lastname']..'. Г‚ГҐГ¤Гі ГЇГ ГІГ°ГіГ«ГЁГ°Г®ГўГ Г­ГЁГҐ | Г‡Г Г«ГЁГў | Г‘Г®Г±ГІГ®ГїГ­ГЁГҐ: C\'1.')
 	--if stats_screen.v then takescreen() end
-	--sampAddChatMessage('{00ff00}[Обход]{ffffff} - Двигайтесь к маяку', -1)
+	--sampAddChatMessage('{00ff00}[ГЋГЎГµГ®Г¤]{ffffff} - Г„ГўГЁГЈГ Г©ГІГҐГ±Гј ГЄ Г¬Г ГїГЄГі', -1)
 	--setMarker(0, 66, -1804, 0, 10, 0xFFFFFFFF)
-	--sampSendChat('/f '..u8:decode((input_prefix_f.v and input_prefix_f.v or ''))..' Докладывает '..my['rang']..' '..my['lastname']..'. Веду патрулирование | Маяк | Состояние: C\1.')
+	--sampSendChat('/f '..u8:decode((input_prefix_f.v and input_prefix_f.v or ''))..' Г„Г®ГЄГ«Г Г¤Г»ГўГ ГҐГІ '..my['rang']..' '..my['lastname']..'. Г‚ГҐГ¤Гі ГЇГ ГІГ°ГіГ«ГЁГ°Г®ГўГ Г­ГЁГҐ | ГЊГ ГїГЄ | Г‘Г®Г±ГІГ®ГїГ­ГЁГҐ: C\1.')
 	--if stats_screen.v then takescreen() end
-	--sampAddChatMessage('{00ff00}[Обход]{ffffff} - Двигайтесь на авианосец', -1)
+	--sampAddChatMessage('{00ff00}[ГЋГЎГµГ®Г¤]{ffffff} - Г„ГўГЁГЈГ Г©ГІГҐГ±Гј Г­Г  Г ГўГЁГ Г­Г®Г±ГҐГ¶', -1)
 	--setMarker(0, 647, -2990,0, 10, 0xFFFFFFFF)
-	--sampSendChat('/f '..u8:decode((input_prefix_f.v and input_prefix_f.v or ''))..' Докладывает '..my['rang']..' '..my['lastname']..'. Веду патрулирование | Авианосец | Состояние: C\1.')
+	--sampSendChat('/f '..u8:decode((input_prefix_f.v and input_prefix_f.v or ''))..' Г„Г®ГЄГ«Г Г¤Г»ГўГ ГҐГІ '..my['rang']..' '..my['lastname']..'. Г‚ГҐГ¤Гі ГЇГ ГІГ°ГіГ«ГЁГ°Г®ГўГ Г­ГЁГҐ | ГЂГўГЁГ Г­Г®Г±ГҐГ¶ | Г‘Г®Г±ГІГ®ГїГ­ГЁГҐ: C\1.')
 	--if stats_screen.v then takescreen() end
-	--sampAddChatMessage('{00ff00}[Обход]{ffffff} - Двигайтесь на Склад Оружия', -1)
+	--sampAddChatMessage('{00ff00}[ГЋГЎГµГ®Г¤]{ffffff} - Г„ГўГЁГЈГ Г©ГІГҐГ±Гј Г­Г  Г‘ГЄГ«Г Г¤ ГЋГ°ГіГ¦ГЁГї', -1)
 	--setMarker(0, 2047,-100,0, 10, 0xFFFFFFFF)
-	--sampSendChat('/f '..u8:decode((input_prefix_f.v and input_prefix_f.v or ''))..' Докладывает '..my['rang']..' '..my['lastname']..'. Веду патрулирование | Склад Оружия . | Состояние: C\'1.')
-	--sampSendChat('/f '..u8:decode((input_prefix_f.v and input_prefix_f.v or ''))..' Докладывает '..my['rang']..' '..my['lastname']..'. Завершил водный патруль.')
+	--sampSendChat('/f '..u8:decode((input_prefix_f.v and input_prefix_f.v or ''))..' Г„Г®ГЄГ«Г Г¤Г»ГўГ ГҐГІ '..my['rang']..' '..my['lastname']..'. Г‚ГҐГ¤Гі ГЇГ ГІГ°ГіГ«ГЁГ°Г®ГўГ Г­ГЁГҐ | Г‘ГЄГ«Г Г¤ ГЋГ°ГіГ¦ГЁГї . | Г‘Г®Г±ГІГ®ГїГ­ГЁГҐ: C\'1.')
+	--sampSendChat('/f '..u8:decode((input_prefix_f.v and input_prefix_f.v or ''))..' Г„Г®ГЄГ«Г Г¤Г»ГўГ ГҐГІ '..my['rang']..' '..my['lastname']..'. Г‡Г ГўГҐГ°ГёГЁГ« ГўГ®Г¤Г­Г»Г© ГЇГ ГІГ°ГіГ«Гј.')
 	--if stats_screen.v then takescreen() end
 --end)
 --end
 --function cmd_around()
 --lua_thread.create(function()
-	--sampSendChat('/r '..u8:decode((input_prefix_r.v and input_prefix_r.v or ''))..' Докладывает '..my['rang']..' '..my['lastname']..'. Начал'..(sex.v and '' or 'а')..' обход территории ВМФ.')
+	--sampSendChat('/r '..u8:decode((input_prefix_r.v and input_prefix_r.v or ''))..' Г„Г®ГЄГ«Г Г¤Г»ГўГ ГҐГІ '..my['rang']..' '..my['lastname']..'. ГЌГ Г·Г Г«'..(sex.v and '' or 'Г ')..' Г®ГЎГµГ®Г¤ ГІГҐГ°Г°ГЁГІГ®Г°ГЁГЁ Г‚ГЊГ”.')
 	--if stats_screen.v then takescreen() end
 	--wait(300)
-	--sampAddChatMessage('{00ff00}[Обход]{ffffff} - Вы начали обход территории ВМФ. Двигайтесь по чекпоинтам', -1)
-	--sampAddChatMessage('{00ff00}[Обход]{ffffff} - Для удобства, на карте выставлены белые точки', -1)
-	--sampAddChatMessage('{00ff00}[Обход]{ffffff} - Двигайтесь к казарме', -1)
+	--sampAddChatMessage('{00ff00}[ГЋГЎГµГ®Г¤]{ffffff} - Г‚Г» Г­Г Г·Г Г«ГЁ Г®ГЎГµГ®Г¤ ГІГҐГ°Г°ГЁГІГ®Г°ГЁГЁ Г‚ГЊГ”. Г„ГўГЁГЈГ Г©ГІГҐГ±Гј ГЇГ® Г·ГҐГЄГЇГ®ГЁГ­ГІГ Г¬', -1)
+	--sampAddChatMessage('{00ff00}[ГЋГЎГµГ®Г¤]{ffffff} - Г„Г«Гї ГіГ¤Г®ГЎГ±ГІГўГ , Г­Г  ГЄГ Г°ГІГҐ ГўГ»Г±ГІГ ГўГ«ГҐГ­Г» ГЎГҐГ«Г»ГҐ ГІГ®Г·ГЄГЁ', -1)
+	--sampAddChatMessage('{00ff00}[ГЋГЎГµГ®Г¤]{ffffff} - Г„ГўГЁГЈГ Г©ГІГҐГ±Гј ГЄ ГЄГ Г§Г Г°Г¬ГҐ', -1)
 	--setMarker(0, -1677, 296, 7, 10, 0xFFFFFFFF)
-	--sampSendChat('/r '..u8:decode((input_prefix_r.v and input_prefix_r.v or ''))..' Докладывает '..my['rang']..' '..my['lastname']..'. Провожу обход базы | Пост: Казарма | Состояние: стабильно.')
+	--sampSendChat('/r '..u8:decode((input_prefix_r.v and input_prefix_r.v or ''))..' Г„Г®ГЄГ«Г Г¤Г»ГўГ ГҐГІ '..my['rang']..' '..my['lastname']..'. ГЏГ°Г®ГўГ®Г¦Гі Г®ГЎГµГ®Г¤ ГЎГ Г§Г» | ГЏГ®Г±ГІ: ГЉГ Г§Г Г°Г¬Г  | Г‘Г®Г±ГІГ®ГїГ­ГЁГҐ: Г±ГІГ ГЎГЁГ«ГјГ­Г®.')
 	--if stats_screen.v then takescreen() end
-	--sampAddChatMessage('{00ff00}[Обход]{ffffff} - Двигайтесь на главный склад', -1)
+	--sampAddChatMessage('{00ff00}[ГЋГЎГµГ®Г¤]{ffffff} - Г„ГўГЁГЈГ Г©ГІГҐГ±Гј Г­Г  ГЈГ«Г ГўГ­Г»Г© Г±ГЄГ«Г Г¤', -1)
 	--setMarker(0, -1529, 375, 14, 10, 0xFFFFFFFF)
-	--sampSendChat('/r '..u8:decode((input_prefix_r.v and input_prefix_r.v or ''))..' Докладывает '..my['rang']..' '..my['lastname']..'. Провожу обход базы | Пост: Главный Склад | Состояние: стабильно .')
+	--sampSendChat('/r '..u8:decode((input_prefix_r.v and input_prefix_r.v or ''))..' Г„Г®ГЄГ«Г Г¤Г»ГўГ ГҐГІ '..my['rang']..' '..my['lastname']..'. ГЏГ°Г®ГўГ®Г¦Гі Г®ГЎГµГ®Г¤ ГЎГ Г§Г» | ГЏГ®Г±ГІ: ГѓГ«Г ГўГ­Г»Г© Г‘ГЄГ«Г Г¤ | Г‘Г®Г±ГІГ®ГїГ­ГЁГҐ: Г±ГІГ ГЎГЁГ«ГјГ­Г® .')
 	--if stats_screen.v then takescreen() end
-	--sampAddChatMessage('{00ff00}[Обход]{ffffff} - Двигайтесь на КПП', -1)
+	--sampAddChatMessage('{00ff00}[ГЋГЎГµГ®Г¤]{ffffff} - Г„ГўГЁГЈГ Г©ГІГҐГ±Гј Г­Г  ГЉГЏГЏ', -1)
 	--setMarker(0, -1529, 477, 7, 10, 0xFFFFFFFF)
-	--sampSendChat('/r '..u8:decode((input_prefix_r.v and input_prefix_r.v or ''))..' Докладывает '..my['rang']..' '..my['lastname']..'. Провожу обход базы | Пост: КПП | Состояние: стабильно .')
+	--sampSendChat('/r '..u8:decode((input_prefix_r.v and input_prefix_r.v or ''))..' Г„Г®ГЄГ«Г Г¤Г»ГўГ ГҐГІ '..my['rang']..' '..my['lastname']..'. ГЏГ°Г®ГўГ®Г¦Гі Г®ГЎГµГ®Г¤ ГЎГ Г§Г» | ГЏГ®Г±ГІ: ГЉГЏГЏ | Г‘Г®Г±ГІГ®ГїГ­ГЁГҐ: Г±ГІГ ГЎГЁГ«ГјГ­Г® .')
 	--if stats_screen.v then takescreen() end
-	--sampAddChatMessage('{00ff00}[Обход]{ffffff} - Двигайтесь на авианосец', -1)
+	--sampAddChatMessage('{00ff00}[ГЋГЎГµГ®Г¤]{ffffff} - Г„ГўГЁГЈГ Г©ГІГҐГ±Гј Г­Г  Г ГўГЁГ Г­Г®Г±ГҐГ¶', -1)
 	--setMarker(0, -1333, 467, 7, 10, 0xFFFFFFFF)
-	--sampSendChat('/r '..u8:decode((input_prefix_r.v and input_prefix_r.v or ''))..' Докладывает '..my['rang']..' '..my['lastname']..'. Провожу обход базы | Пост: Авианосец| Состояние: стабильно .')
-	--sampSendChat('/r '..u8:decode((input_prefix_r.v and input_prefix_r.v or ''))..' Докладывает '..my['rang']..' '..my['lastname']..'. Закончил'..(sex.v and '' or 'а')..' обход территории ВМФ.')
+	--sampSendChat('/r '..u8:decode((input_prefix_r.v and input_prefix_r.v or ''))..' Г„Г®ГЄГ«Г Г¤Г»ГўГ ГҐГІ '..my['rang']..' '..my['lastname']..'. ГЏГ°Г®ГўГ®Г¦Гі Г®ГЎГµГ®Г¤ ГЎГ Г§Г» | ГЏГ®Г±ГІ: ГЂГўГЁГ Г­Г®Г±ГҐГ¶| Г‘Г®Г±ГІГ®ГїГ­ГЁГҐ: Г±ГІГ ГЎГЁГ«ГјГ­Г® .')
+	--sampSendChat('/r '..u8:decode((input_prefix_r.v and input_prefix_r.v or ''))..' Г„Г®ГЄГ«Г Г¤Г»ГўГ ГҐГІ '..my['rang']..' '..my['lastname']..'. Г‡Г ГЄГ®Г­Г·ГЁГ«'..(sex.v and '' or 'Г ')..' Г®ГЎГµГ®Г¤ ГІГҐГ°Г°ГЁГІГ®Г°ГЁГЁ Г‚ГЊГ”.')
 	--if stats_screen.v then takescreen() end
 --end)
 --end
@@ -714,17 +714,17 @@ function cmd_post(post,global)
 			end
 		end)
 	else
-		sampAddChatMessage('/post <Пост>', -1)
+		sampAddChatMessage('/post <ГЏГ®Г±ГІ>', -1)
 	end
 end
 function cmd_invite(id)
  lua_thread.create(function()
 	if id:find('%d+') then
-		sampSendChat('/do В левой руке офицера кейс. ')
+		sampSendChat('/do Г‚ Г«ГҐГўГ®Г© Г°ГіГЄГҐ Г®ГґГЁГ¶ГҐГ°Г  ГЄГҐГ©Г±. ')
 		wait(2000)
-		sampSendChat('/me быстрым движением руки открыл кейс, затем достал оттуда пакет формы, погоны и шевроны. ')
+		sampSendChat('/me ГЎГ»Г±ГІГ°Г»Г¬ Г¤ГўГЁГ¦ГҐГ­ГЁГҐГ¬ Г°ГіГЄГЁ Г®ГІГЄГ°Г»Г« ГЄГҐГ©Г±, Г§Г ГІГҐГ¬ Г¤Г®Г±ГІГ Г« Г®ГІГІГіГ¤Г  ГЇГ ГЄГҐГІ ГґГ®Г°Г¬Г», ГЇГ®ГЈГ®Г­Г» ГЁ ГёГҐГўГ°Г®Г­Г». ')
 		wait(2000)
-		sampSendChat('/me достал из кейса рацию, после чего протянул все вещи человеку напротив. ')
+		sampSendChat('/me Г¤Г®Г±ГІГ Г« ГЁГ§ ГЄГҐГ©Г±Г  Г°Г Г¶ГЁГѕ, ГЇГ®Г±Г«ГҐ Г·ГҐГЈГ® ГЇГ°Г®ГІГїГ­ГіГ« ГўГ±ГҐ ГўГҐГ№ГЁ Г·ГҐГ«Г®ГўГҐГЄГі Г­Г ГЇГ°Г®ГІГЁГў. ')
 		wait(1000)
 		sampSendChat('/invite '..id)
 	else
@@ -735,11 +735,11 @@ end
 function cmd_division(id)
  lua_thread.create(function()
 	if id:find('%d+') then
-		sampSendChat('/do В кармане кителя офицера лежит смартфон.')
+		sampSendChat('/do Г‚ ГЄГ Г°Г¬Г Г­ГҐ ГЄГЁГІГҐГ«Гї Г®ГґГЁГ¶ГҐГ°Г  Г«ГҐГ¦ГЁГІ Г±Г¬Г Г°ГІГґГ®Г­.')
 		wait(2000)
-		sampSendChat('/me быстрым движением руки достал смартфон, разблокировал его, после чего запустил базу данных "Ministry Of Defence"')
+		sampSendChat('/me ГЎГ»Г±ГІГ°Г»Г¬ Г¤ГўГЁГ¦ГҐГ­ГЁГҐГ¬ Г°ГіГЄГЁ Г¤Г®Г±ГІГ Г« Г±Г¬Г Г°ГІГґГ®Г­, Г°Г Г§ГЎГ«Г®ГЄГЁГ°Г®ГўГ Г« ГҐГЈГ®, ГЇГ®Г±Г«ГҐ Г·ГҐГЈГ® Г§Г ГЇГіГ±ГІГЁГ« ГЎГ Г§Гі Г¤Г Г­Г­Г»Гµ "Ministry Of Defence"')
 		wait(2000)
-		sampSendChat('/me нашел в списке состава нужного бойца, изменил ему взвод, затем заблокировал смартфон и положил его обратно в карман.')
+		sampSendChat('/me Г­Г ГёГҐГ« Гў Г±ГЇГЁГ±ГЄГҐ Г±Г®Г±ГІГ ГўГ  Г­ГіГ¦Г­Г®ГЈГ® ГЎГ®Г©Г¶Г , ГЁГ§Г¬ГҐГ­ГЁГ« ГҐГ¬Гі ГўГ§ГўГ®Г¤, Г§Г ГІГҐГ¬ Г§Г ГЎГ«Г®ГЄГЁГ°Г®ГўГ Г« Г±Г¬Г Г°ГІГґГ®Г­ ГЁ ГЇГ®Г«Г®Г¦ГЁГ« ГҐГЈГ® Г®ГЎГ°Г ГІГ­Г® Гў ГЄГ Г°Г¬Г Г­.')
 		wait(1000)
 		sampSendChat('/division '..id)
 	else
@@ -750,11 +750,11 @@ end
 function cmd_uninvite(id)
  lua_thread.create(function()
 	if #id>0 then
-		sampSendChat('/do В кармане кителя офицера лежит смартфон.')
+		sampSendChat('/do Г‚ ГЄГ Г°Г¬Г Г­ГҐ ГЄГЁГІГҐГ«Гї Г®ГґГЁГ¶ГҐГ°Г  Г«ГҐГ¦ГЁГІ Г±Г¬Г Г°ГІГґГ®Г­.')
 		wait(2000)
-		sampSendChat('/me быстрым движением руки достал смартфон, разблокировал его, после чего запустил базу данных "Ministry Of Defence"')
+		sampSendChat('/me ГЎГ»Г±ГІГ°Г»Г¬ Г¤ГўГЁГ¦ГҐГ­ГЁГҐГ¬ Г°ГіГЄГЁ Г¤Г®Г±ГІГ Г« Г±Г¬Г Г°ГІГґГ®Г­, Г°Г Г§ГЎГ«Г®ГЄГЁГ°Г®ГўГ Г« ГҐГЈГ®, ГЇГ®Г±Г«ГҐ Г·ГҐГЈГ® Г§Г ГЇГіГ±ГІГЁГ« ГЎГ Г§Гі Г¤Г Г­Г­Г»Гµ "Ministry Of Defence"')
 		wait(2000)
-		sampSendChat('/me нашел в списке состава нужного бойца, нажал на кнопку «Увольнение», затем заблокировал смартфон и положил его обратно в карман.')
+		sampSendChat('/me Г­Г ГёГҐГ« Гў Г±ГЇГЁГ±ГЄГҐ Г±Г®Г±ГІГ ГўГ  Г­ГіГ¦Г­Г®ГЈГ® ГЎГ®Г©Г¶Г , Г­Г Г¦Г Г« Г­Г  ГЄГ­Г®ГЇГЄГі В«Г“ГўГ®Г«ГјГ­ГҐГ­ГЁГҐВ», Г§Г ГІГҐГ¬ Г§Г ГЎГ«Г®ГЄГЁГ°Г®ГўГ Г« Г±Г¬Г Г°ГІГґГ®Г­ ГЁ ГЇГ®Г«Г®Г¦ГЁГ« ГҐГЈГ® Г®ГЎГ°Г ГІГ­Г® Гў ГЄГ Г°Г¬Г Г­.')
 		wait(1000)
 		sampSendChat('/uninvite '..id)
 	else
@@ -772,11 +772,11 @@ end
 function cmd_fwarn(id)
  lua_thread.create(function()
 	if #id>0 then
-		sampSendChat('/do В кармане кителя офицера лежит смартфон.')
+		sampSendChat('/do Г‚ ГЄГ Г°Г¬Г Г­ГҐ ГЄГЁГІГҐГ«Гї Г®ГґГЁГ¶ГҐГ°Г  Г«ГҐГ¦ГЁГІ Г±Г¬Г Г°ГІГґГ®Г­.')
 		wait(2000)
-		sampSendChat('/me быстрым движением руки достал смартфон, разблокировал его, после чего запустил базу данных "Ministry Of Defence"')
+		sampSendChat('/me ГЎГ»Г±ГІГ°Г»Г¬ Г¤ГўГЁГ¦ГҐГ­ГЁГҐГ¬ Г°ГіГЄГЁ Г¤Г®Г±ГІГ Г« Г±Г¬Г Г°ГІГґГ®Г­, Г°Г Г§ГЎГ«Г®ГЄГЁГ°Г®ГўГ Г« ГҐГЈГ®, ГЇГ®Г±Г«ГҐ Г·ГҐГЈГ® Г§Г ГЇГіГ±ГІГЁГ« ГЎГ Г§Гі Г¤Г Г­Г­Г»Гµ "Ministry Of Defence"')
 		wait(2000)
-		sampSendChat('/me нашел в списке состава нужного бойца, нажал на кнопку «Выговор», затем заблокировал смартфон и положил его обратно в карман.')
+		sampSendChat('/me Г­Г ГёГҐГ« Гў Г±ГЇГЁГ±ГЄГҐ Г±Г®Г±ГІГ ГўГ  Г­ГіГ¦Г­Г®ГЈГ® ГЎГ®Г©Г¶Г , Г­Г Г¦Г Г« Г­Г  ГЄГ­Г®ГЇГЄГі В«Г‚Г»ГЈГ®ГўГ®Г°В», Г§Г ГІГҐГ¬ Г§Г ГЎГ«Г®ГЄГЁГ°Г®ГўГ Г« Г±Г¬Г Г°ГІГґГ®Г­ ГЁ ГЇГ®Г«Г®Г¦ГЁГ« ГҐГЈГ® Г®ГЎГ°Г ГІГ­Г® Гў ГЄГ Г°Г¬Г Г­.')
 		wait(1000)
 		sampSendChat('/fwarn '..id)
 	else
@@ -787,17 +787,17 @@ end
 function cmd_dis(id)
  lua_thread.create(function()
 	if #id>0 then
-		sampSendChat('/do В кармане кителя офицера лежит смартфон.')
+		sampSendChat('/do Г‚ ГЄГ Г°Г¬Г Г­ГҐ ГЄГЁГІГҐГ«Гї Г®ГґГЁГ¶ГҐГ°Г  Г«ГҐГ¦ГЁГІ Г±Г¬Г Г°ГІГґГ®Г­.')
 		wait(2000)
-		sampSendChat('/me быстрым движением руки достал смартфон, разблокировал его, после чего запустил базу данных ВМФ')
+		sampSendChat('/me ГЎГ»Г±ГІГ°Г»Г¬ Г¤ГўГЁГ¦ГҐГ­ГЁГҐГ¬ Г°ГіГЄГЁ Г¤Г®Г±ГІГ Г« Г±Г¬Г Г°ГІГґГ®Г­, Г°Г Г§ГЎГ«Г®ГЄГЁГ°Г®ГўГ Г« ГҐГЈГ®, ГЇГ®Г±Г«ГҐ Г·ГҐГЈГ® Г§Г ГЇГіГ±ГІГЁГ« ГЎГ Г§Гі Г¤Г Г­Г­Г»Гµ Г‚ГЊГ”')
 		wait(2000)
-		sampSendChat('/me нашел в списке состава нужного бойца, нажал на кнопку «Выговор», затем заблокировал смартфон и положил его обратно в карман.')
+		sampSendChat('/me Г­Г ГёГҐГ« Гў Г±ГЇГЁГ±ГЄГҐ Г±Г®Г±ГІГ ГўГ  Г­ГіГ¦Г­Г®ГЈГ® ГЎГ®Г©Г¶Г , Г­Г Г¦Г Г« Г­Г  ГЄГ­Г®ГЇГЄГі В«Г‚Г»ГЈГ®ГўГ®Г°В», Г§Г ГІГҐГ¬ Г§Г ГЎГ«Г®ГЄГЁГ°Г®ГўГ Г« Г±Г¬Г Г°ГІГґГ®Г­ ГЁ ГЇГ®Г«Г®Г¦ГЁГ« ГҐГЈГ® Г®ГЎГ°Г ГІГ­Г® Гў ГЄГ Г°Г¬Г Г­.')
 		wait(2000)
-		sampSendChat('/me достал с кейса чистый бланк увольнительного билета и ручку, приступил к заполнению билета.')
+		sampSendChat('/me Г¤Г®Г±ГІГ Г« Г± ГЄГҐГ©Г±Г  Г·ГЁГ±ГІГ»Г© ГЎГ«Г Г­ГЄ ГіГўГ®Г«ГјГ­ГЁГІГҐГ«ГјГ­Г®ГЈГ® ГЎГЁГ«ГҐГІГ  ГЁ Г°ГіГ·ГЄГі, ГЇГ°ГЁГ±ГІГіГЇГЁГ« ГЄ Г§Г ГЇГ®Г«Г­ГҐГ­ГЁГѕ ГЎГЁГ«ГҐГІГ .')
 		wait(2000)
-		sampSendChat('/do Увольнительный билет оформлен на военнослужащего и утвержден командованием. ')
+		sampSendChat('/do Г“ГўГ®Г«ГјГ­ГЁГІГҐГ«ГјГ­Г»Г© ГЎГЁГ«ГҐГІ Г®ГґГ®Г°Г¬Г«ГҐГ­ Г­Г  ГўГ®ГҐГ­Г­Г®Г±Г«ГіГ¦Г Г№ГҐГЈГ® ГЁ ГіГІГўГҐГ°Г¦Г¤ГҐГ­ ГЄГ®Г¬Г Г­Г¤Г®ГўГ Г­ГЁГҐГ¬. ')
 		wait(2000)
-		sampSendChat('/me протянул увольнительный билет человеку напротив, спрятал ручку обратно в кейс.')
+		sampSendChat('/me ГЇГ°Г®ГІГїГ­ГіГ« ГіГўГ®Г«ГјГ­ГЁГІГҐГ«ГјГ­Г»Г© ГЎГЁГ«ГҐГІ Г·ГҐГ«Г®ГўГҐГЄГі Г­Г ГЇГ°Г®ГІГЁГў, Г±ГЇГ°ГїГІГ Г« Г°ГіГ·ГЄГі Г®ГЎГ°Г ГІГ­Г® Гў ГЄГҐГ©Г±.')
 		wait(1000)
 		sampSendChat('/dis '..id)
 	else
@@ -808,11 +808,11 @@ end
 function cmd_rang(id)
  lua_thread.create(function()
 	if id:find('%d+') then
-		sampSendChat('/do В левой руке офицера кейс.')
+		sampSendChat('/do Г‚ Г«ГҐГўГ®Г© Г°ГіГЄГҐ Г®ГґГЁГ¶ГҐГ°Г  ГЄГҐГ©Г±.')
 		wait(2000)
-		sampSendChat('/me быстрым движением руки открыл кейс, затем достал оттуда новые погоны и шевроны.')
+		sampSendChat('/me ГЎГ»Г±ГІГ°Г»Г¬ Г¤ГўГЁГ¦ГҐГ­ГЁГҐГ¬ Г°ГіГЄГЁ Г®ГІГЄГ°Г»Г« ГЄГҐГ©Г±, Г§Г ГІГҐГ¬ Г¤Г®Г±ГІГ Г« Г®ГІГІГіГ¤Г  Г­Г®ГўГ»ГҐ ГЇГ®ГЈГ®Г­Г» ГЁ ГёГҐГўГ°Г®Г­Г».')
 		wait(2000)
-		sampSendChat('/me протянул новые погоны и шевроны военнослужащему напротив, закрыл кейс. ')
+		sampSendChat('/me ГЇГ°Г®ГІГїГ­ГіГ« Г­Г®ГўГ»ГҐ ГЇГ®ГЈГ®Г­Г» ГЁ ГёГҐГўГ°Г®Г­Г» ГўГ®ГҐГ­Г­Г®Г±Г«ГіГ¦Г Г№ГҐГ¬Гі Г­Г ГЇГ°Г®ГІГЁГў, Г§Г ГЄГ°Г»Г« ГЄГҐГ©Г±. ')
 		wait(1000)
 		sampSendChat('/rang '..id)
 	else
@@ -823,11 +823,11 @@ end
 function cmd_setskin(id)
  lua_thread.create(function()
 	if id:find('%d+') then
-		sampSendChat('/do В левой руке офицера кейс.')
+		sampSendChat('/do Г‚ Г«ГҐГўГ®Г© Г°ГіГЄГҐ Г®ГґГЁГ¶ГҐГ°Г  ГЄГҐГ©Г±.')
 		wait(2000)
-		sampSendChat('/me быстрым движением руки открыл кейс, затем достал оттуда пакет формы и шевроны.')
+		sampSendChat('/me ГЎГ»Г±ГІГ°Г»Г¬ Г¤ГўГЁГ¦ГҐГ­ГЁГҐГ¬ Г°ГіГЄГЁ Г®ГІГЄГ°Г»Г« ГЄГҐГ©Г±, Г§Г ГІГҐГ¬ Г¤Г®Г±ГІГ Г« Г®ГІГІГіГ¤Г  ГЇГ ГЄГҐГІ ГґГ®Г°Г¬Г» ГЁ ГёГҐГўГ°Г®Г­Г».')
 		wait(2000)
-		sampSendChat('/me протянул пакет формы и шевроны военнослужащему напротив, закрыл кейс.')
+		sampSendChat('/me ГЇГ°Г®ГІГїГ­ГіГ« ГЇГ ГЄГҐГІ ГґГ®Г°Г¬Г» ГЁ ГёГҐГўГ°Г®Г­Г» ГўГ®ГҐГ­Г­Г®Г±Г«ГіГ¦Г Г№ГҐГ¬Гі Г­Г ГЇГ°Г®ГІГЁГў, Г§Г ГЄГ°Г»Г« ГЄГҐГ©Г±.')
 		wait(1000)
 		sampSendChat('/setskin '..id)
 	else
@@ -845,7 +845,7 @@ function cmd_r(text)
 	if #text ~= 0 then
 		sampSendChat('/r '..u8:decode((input_prefix_r.v and input_prefix_r.v or ''))..' '..text)
 	else
-		sampAddChatMessage('/r (Текст)', -1)
+		sampAddChatMessage('/r (Г’ГҐГЄГ±ГІ)', -1)
 	end
 end
 function cmd_mobind()
@@ -855,13 +855,13 @@ function cmd_f(text)
 	if #text ~= 0 then
 		sampSendChat('/f '..u8:decode((input_prefix_f.v and input_prefix_f.v or ''))..' '..text)
 	else
-		sampAddChatMessage('/f (Текст)', -1)
+		sampAddChatMessage('/f (Г’ГҐГЄГ±ГІ)', -1)
 	end
 end
 function cmd_terr(id)
 	lua_thread.create(function()
 		local name = sampGetPlayerNickname(id):gsub('_',' ')
-		sampSendChat('/todo Немедленно покиньте территорию!*посмотрев на '..name..'.')
+		sampSendChat('/todo ГЌГҐГ¬ГҐГ¤Г«ГҐГ­Г­Г® ГЇГ®ГЄГЁГ­ГјГІГҐ ГІГҐГ°Г°ГЁГІГ®Г°ГЁГѕ!*ГЇГ®Г±Г¬Г®ГІГ°ГҐГў Г­Г  '..name..'.')
 	end)
 end
 function takescreen()
@@ -874,7 +874,7 @@ end
 function cmd_hello(id)
 	lua_thread.create(function()
 		local name = sampGetPlayerNickname(id):gsub('_',' ')
-		sampSendChat('/todo Здравия желаю!*посмотрев на '..name..'.')
+		sampSendChat('/todo Г‡Г¤Г°Г ГўГЁГї Г¦ГҐГ«Г Гѕ!*ГЇГ®Г±Г¬Г®ГІГ°ГҐГў Г­Г  '..name..'.')
 	end)
 end
 function updatebind()
@@ -898,17 +898,17 @@ function updatebind()
 					end
 						wait(val['wait'])
 				end
-			end) -- поток
-		end) -- функция
+			end) -- ГЇГ®ГІГ®ГЄ
+		end) -- ГґГіГ­ГЄГ¶ГЁГї
 	end
 end
 function cmd_ud(id)
 	print(id)
 if (id>=0 and id <1000) then
 	lua_thread.create(function()
-		sampSendChat('/me чуть распахнув грудь, вытащил'..(sex.v and '' or 'а')..' удостоверение')
+		sampSendChat('/me Г·ГіГІГј Г°Г Г±ГЇГ ГµГ­ГіГў ГЈГ°ГіГ¤Гј, ГўГ»ГІГ Г№ГЁГ«'..(sex.v and '' or 'Г ')..' ГіГ¤Г®Г±ГІГ®ГўГҐГ°ГҐГ­ГЁГҐ')
 		wait(2000)
-		sampSendChat('/todo '..my['rang']..' '..my['lastname']..'*раскрыв удостоверение перед лицом человека напротив.')
+		sampSendChat('/todo '..my['rang']..' '..my['lastname']..'*Г°Г Г±ГЄГ°Г»Гў ГіГ¤Г®Г±ГІГ®ГўГҐГ°ГҐГ­ГЁГҐ ГЇГҐГ°ГҐГ¤ Г«ГЁГ¶Г®Г¬ Г·ГҐГ«Г®ГўГҐГЄГ  Г­Г ГЇГ°Г®ГІГЁГў.')
 		wait(2000)
 		sampSendChat('/ud '..id)
 	end)
@@ -1033,9 +1033,9 @@ function autoupdate(json_url, prefix, url)
                 downloadUrlToFile(updatelink, thisScript().path,
                   function(id3, status1, p13, p23)
                     if status1 == dlstatus.STATUS_DOWNLOADINGDATA then
-                      print(string.format('Загружено %d из %d.', p13, p23))
+                      print(string.format('Г‡Г ГЈГ°ГіГ¦ГҐГ­Г® %d ГЁГ§ %d.', p13, p23))
                     elseif status1 == dlstatus.STATUS_ENDDOWNLOADDATA then
-                      print('Загрузка обновления завершена.')
+                      print('Г‡Г ГЈГ°ГіГ§ГЄГ  Г®ГЎГ­Г®ГўГ«ГҐГ­ГЁГї Г§Г ГўГҐГ°ГёГҐГ­Г .')
 
                       goupdatestatus = true
                       lua_thread.create(function() wait(500) thisScript():reload() end)
@@ -1054,7 +1054,7 @@ function autoupdate(json_url, prefix, url)
             end
           end
         else
-          print('v'..thisScript().version..': Не могу проверить обновление. Смиритесь или проверьте самостоятельно на '..url)
+          print('v'..thisScript().version..': ГЌГҐ Г¬Г®ГЈГі ГЇГ°Г®ГўГҐГ°ГЁГІГј Г®ГЎГ­Г®ГўГ«ГҐГ­ГЁГҐ. Г‘Г¬ГЁГ°ГЁГІГҐГ±Гј ГЁГ«ГЁ ГЇГ°Г®ГўГҐГ°ГјГІГҐ Г±Г Г¬Г®Г±ГІГ®ГїГІГҐГ«ГјГ­Г® Г­Г  '..url)
           update = false
         end
       end
@@ -1133,30 +1133,30 @@ function setMarker(type, x, y, z, radius, color)
 end
 function kvadrat()
     local KV = {
-        [1] = "А",
-        [2] = "Б",
-        [3] = "В",
-        [4] = "Г",
-        [5] = "Д",
-        [6] = "Ж",
-        [7] = "З",
-        [8] = "И",
-        [9] = "К",
-        [10] = "Л",
-        [11] = "М",
-        [12] = "Н",
-        [13] = "О",
-        [14] = "П",
-        [15] = "Р",
-        [16] = "С",
-        [17] = "Т",
-        [18] = "У",
-        [19] = "Ф",
-        [20] = "Х",
-        [21] = "Ц",
-        [22] = "Ч",
-        [23] = "Ш",
-        [24] = "Я",
+        [1] = "ГЂ",
+        [2] = "ГЃ",
+        [3] = "Г‚",
+        [4] = "Гѓ",
+        [5] = "Г„",
+        [6] = "Г†",
+        [7] = "Г‡",
+        [8] = "Г€",
+        [9] = "ГЉ",
+        [10] = "Г‹",
+        [11] = "ГЊ",
+        [12] = "ГЌ",
+        [13] = "ГЋ",
+        [14] = "ГЏ",
+        [15] = "Гђ",
+        [16] = "Г‘",
+        [17] = "Г’",
+        [18] = "Г“",
+        [19] = "Г”",
+        [20] = "Г•",
+        [21] = "Г–",
+        [22] = "Г—",
+        [23] = "Г",
+        [24] = "Гџ",
     }
     local X, Y, Z = getCharCoordinates(playerPed)
     X = math.ceil((X + 3000) / 250)
